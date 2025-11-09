@@ -1,0 +1,520 @@
+/**
+ * Page Template Styles
+ *
+ * @package Postali Child
+ * @author Postali LLC
+*/
+
+.page-template-page-interior, .single-post, .blog, .category, .page-template-page-why-hire {
+    #banner {
+        padding: 40px 0;
+    }
+
+    #body {
+        padding: 0;
+        & > .container > .columns {
+            .column-33 {
+                align-self: stretch !important;
+            }
+            .column-66 {
+                padding: 80px 0;
+            }
+        }
+    }
+}
+
+.page-template-page-interior {
+    #body {
+        & > .container > .columns > .column-66 {
+            padding-top: 30px !important;
+        }
+    }
+}
+
+.single-post {
+    .column-66 {
+        h1 {
+            color: $blk;
+        }
+        .featured-img img {
+            width: 100%;
+            height: auto;
+            -o-object-fit: cover;
+               object-fit: cover;
+            -o-object-position: center;
+               object-position: center;
+            margin-bottom: 30px;
+        }
+    }
+    .column-33 {
+        h5 {
+            &:first-of-type {
+                margin-top: 0 !important;
+            }
+        }
+    }
+}
+
+.blog, .category {
+    .column-66 {
+        .post {
+            border-bottom: solid 1px $grey;
+            margin-bottom: 20px;
+            position: relative;
+            &:hover {
+                h4 {
+                    text-decoration: underline;
+                    color: $blue;
+                }
+                .post-copy {
+                    &:after {
+                        color: $blue;
+                        border-color: $blue;
+                    }
+                }
+            }
+            .post-copy {
+                position: relative;
+                margin-bottom: 30px;
+                p {
+                    &:last-of-type {
+                        margin-bottom: 0 !important;
+                    }
+                }
+                &:after {
+                    content: "\e909";
+                    font-family: $icomoon;
+                    font-size: 12px;
+                    text-align: center;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    color: $grey;
+                    position: absolute;
+                    bottom: -20px;
+                    right: 0;
+                    width: 20px;
+                    height: 20px;
+                    border: solid 1px $grey;
+                    border-radius: 50%;
+                    transition: $trans;
+                }
+            }
+            .columns {
+                justify-content: flex-start;
+                gap: 30px;
+                & > div {
+                    &:first-of-type {
+                        align-self: stretch;
+                        padding-bottom: 30px;
+                        img {
+                            -o-object-fit: cover;
+                               object-fit: cover;
+                            -o-object-position: center;
+                               object-position: center;
+                            width: 100%;
+                            height: 100%;
+                            max-height: 350px;
+                            @include respond(desktop) {
+                                max-height: 250px;
+                            }
+                            @include respond(tab-land) {
+                                max-height: 150px;
+                            }
+                            @include respond(tab-port) {
+                                max-height: 300px;
+                            }
+                            
+                        }
+                    }
+                    &:last-of-type {
+                        flex-grow: 1;
+                    }
+                }
+            }
+            .post-link {
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: calc(100% + 20px);
+                z-index: 1;
+            }
+            h4 {
+                font-size: 26px;
+                text-transform: uppercase;
+                font-weight: $normal;
+                color: $blk;
+                line-height: 110%;
+                margin-bottom: 10px;
+            }
+            .tagline, p {
+                a {
+                    position: relative;
+                    z-index: 2;
+                }
+            }
+        }
+    }
+    .column-33 {
+        .default-sidebar-banner {
+            display: block;
+            margin-bottom: 45px;
+        }
+        h5 {
+            &:first-of-type {
+                margin-top: 0 !important;
+            }
+        }
+    }
+}
+
+.page-template-page-about {
+    #about {
+        .attorney-img img {
+            margin-bottom: 30px;
+            @include respond(tab-port) {
+                margin-top: 30px;
+                width: 100%;
+                height: auto;
+                -o-object-fit: cover;
+                   object-fit: cover;
+            }
+        }
+        .testimonial {
+            position: relative;
+            &:before {
+                content: "\e90c";
+                font-family: $icomoon;
+                color: $blue;
+                position: absolute;
+                top: 0;
+                left: 0;
+                font-size: 40px;
+                color: $yellow;
+                @include respond(phone) {
+                    font-size: 30px;
+                }
+            }
+            .large-quote {
+                color: $blue;
+                font-size: 26px;
+                margin-top: 20px;
+                font-weight: $normal;
+                line-height: 130%;
+                padding-left: 60px;
+                @include respond(phone) {
+                    font-size: 20px;
+                    padding-left: 40px;
+                }
+            }
+            a {
+                display: block;
+                width: -webkit-fit-content;
+                width: -moz-fit-content;
+                width: fit-content;
+                margin: 0 0 0 auto;
+                font-weight: $normal;
+                text-transform: uppercase;
+            }
+        }
+    }
+    #benefits {
+        h3 {
+            text-align: center;
+        }
+        .column-75 {
+            @include respond(tab-land) {
+                width: 100%;
+            }
+        }
+        .benefits-wrapper {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 30px;
+            margin-top: 60px;
+            @include respond(tab-port) {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            @include respond(phone) {
+                grid-template-columns: 1fr;
+            }
+            .benefit {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-self: center;
+                img {
+                    height: 88px;
+                    width: auto;
+                    margin-bottom: 15px;
+                }
+                p {
+                    text-align: center;
+                    @include respond(phone) {
+                        max-width: 200px;
+                    }
+                }
+            }
+        }
+    }
+    #efforts {
+        img {
+            @include respond(tab-port) {
+                margin-bottom: 30px;
+                width: 100%;
+                height: auto;
+                -o-object-fit: cover;
+                   object-fit: cover;
+            }
+        }
+    }
+    #services {
+        h4 {
+            text-align: center;
+            margin-bottom: 60px !important;
+        }
+        h5 {
+            font-weight: $normal;
+        }
+    }
+    #media {
+        .media-coverage, .blog-posts {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 40px;
+            padding-bottom: 30px;
+            border-bottom: solid 1px $blk;
+            @include respond(tab-port) {
+                grid-template-columns: 1fr;
+                grid-gap: 20px;
+            }
+            h3 {
+                grid-column: span 2;
+                margin-bottom: 0 !important;
+                text-align: center;
+                @include respond(tab-port) {
+                    grid-column: span 1;
+                    margin-bottom: 20px !important;
+                }
+            }
+            h4 {
+                font-size: 20px;
+                margin-bottom: 10px !important;
+            }
+            .post {
+                position: relative;
+                &:hover {
+                    h4 {
+                        color: $blue;
+                        text-decoration: underline;
+                    }
+                    .post-copy {
+                        &:after {
+                            color: $blue;
+                            border-color: $blue;
+                        }
+                    }
+                }
+                h4 {
+                    transition: $trans;
+                }
+                .post-link {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    z-index: 1;
+                }
+                .post-copy {
+                    position: relative;
+                    margin-bottom: 30px;
+
+                    p {
+                        &:last-of-type {
+                            margin-bottom: 0 !important;
+                        }
+                    }
+
+                    &:after {
+                        content: "\e909";
+                        font-family: $icomoon;
+                        font-size: 12px;
+                        text-align: center;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        color: $grey;
+                        position: absolute;
+                        bottom: -30px;
+                        right: 0;
+                        width: 20px;
+                        height: 20px;
+                        border: solid 1px $grey;
+                        border-radius: 50%;
+                        transition: $trans;
+                    }
+                }
+            }
+        }
+        .blog-posts {
+            padding-top: 80px;
+            margin-bottom: 80px;
+        }
+    }
+}
+
+.page-template-page-contact {
+    #body {
+        .form-wrapper {
+            background: $grey;
+            padding: 20px 20px 15px 20px;
+            h5 {
+                text-align: center;
+
+            }
+        }
+        .contact-wrapper {
+            margin: 30px 0;
+            .contact-row {
+                margin-bottom: 30px;
+                padding-left: 60px;
+                position: relative;
+                &:before {
+                    content: "";
+                    font-family: $icomoon;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    width: 45px;
+                    height: 45px;
+                    background: $blue;
+                    border-radius: 50%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    color: $white;
+                    font-size: 20px;
+                }
+                &:nth-of-type(1) {
+                    &:before {
+                        content: "\e90b";
+                    }
+                }
+                &:nth-of-type(2) {
+                    &:before {
+                        content: "\e90e";
+                    }
+                }
+                &:nth-of-type(3) {
+                    &:before {
+                        content: "\e9ca";
+                    }
+                }
+                h5, p {
+                    margin-bottom: 5px !important;
+                }
+                a {
+                    word-wrap: break-word;
+                }
+            }
+        }
+    }
+}
+
+.page-template-page-why-hire {
+    .column-66 {
+        padding-top: 30px !important;
+        padding-bottom: 0 !important;
+    }
+    .attorney-img {
+        width: 200px;
+        height: 200px;
+        min-height: 200px;
+        min-width: 200px;
+        -o-object-fit: cover;
+           object-fit: cover;
+        border-radius: 50%;
+        border: solid 5px $grey;
+        @include respond(tab-land) {
+            width: 150px;
+            height: 150px;
+            min-height: 150px;
+            min-width: 150px;
+        }
+        @include respond(tab-port) {
+            width: 200px;
+            height: 200px;
+            min-height: 200px;
+            min-width: 200px;
+        }
+    }
+    .large-text {
+        margin-bottom: 0 !important;
+    }
+    .reasons {
+        .row {
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            padding: 20px 15px;
+            gap: 20px;
+            margin: 20px 0;
+            &:nth-of-type(even) {
+                background: #eaebeb;
+            }
+            @include respond(phone) {
+                flex-direction: column;
+            }
+            .count {
+                border: solid 2px $blue;
+                border-radius: 50%;
+                font-family: $sans !important;
+                max-width: 55px;
+                max-height: 55px;
+                min-width: 55px;
+                min-height: 55px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: $blue;
+                font-size: 30px;
+                line-height: normal;
+                font-weight: $bold;
+                background: $white;
+                box-shadow: 0 0 0 3px #ccc;
+            }
+            .copy {
+                h4 {
+                    margin-bottom: 5px !important;
+                    color: $darkerblue;
+                }
+                p {
+                    margin-bottom: 0 !important;
+                }
+            }
+            .reasons-icon {
+                align-self: center;
+                @include respond(phone) {
+                    align-self: flex-start;
+                }
+            }
+        }
+    }
+}
+
+.search {
+    a.search-item {
+        text-decoration: none;
+        &:hover {
+            h2 {
+                text-decoration: underline;
+            }
+        }
+        p {
+            font-weight: $normal;
+        }
+    }
+}

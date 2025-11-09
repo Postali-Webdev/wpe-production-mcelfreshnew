@@ -1,0 +1,214 @@
+/**
+ * Web Font Styles, H Styles, Body Text Styles
+ *
+ * @package Postali Child
+ * @author Postali LLC
+**/
+
+/* Fonts */
+body, h1, h2, h3, h4, h5, h6, p, a, ul {
+    // color: $body-text-color;
+} 
+
+* {
+    font-family: $sans !important;
+}
+
+p, a, ul, ol {
+
+}
+ol {
+    margin-bottom: 20px !important;
+    li {
+        margin: 0 0 0 20px;
+        font-size: 18px;
+        color: $blk;
+        line-height: 28px;
+    }
+}
+
+ul, ol {
+    margin-left: 0 !important;
+}
+
+ul:not(.menu):not(.pa-menu):not(.sub-menu) {
+    margin-bottom: 20px !important;
+    li {
+        font-size: 18px;
+        list-style-type: none;
+        position: relative;
+        margin: 0;
+        padding-left: 18px;    
+        color: $blk;
+        line-height: 28px;
+        margin-bottom: 15px;
+        &:before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: $blue;
+            position: absolute;
+            left: 0;
+            top: 9px
+        }
+    }
+}
+dl, blockquote, img {
+
+}
+
+a {
+    text-decoration: underline;
+    -webkit-transition:$trans;
+    transition:$trans;
+    color: $blue;
+    font-weight: $bold;
+    &:hover {
+        
+        text-decoration: none;
+        color: $blue;
+    }
+}
+.menu-item a {
+    &:hover {
+        text-decoration:none;
+    }
+}
+
+.btn {
+    display: block;
+    background: $blue;
+    color: $white;
+    transition:$trans;
+    text-align: center;
+    font-size: 16px;
+    width: fit-content;
+    padding: 15px 20px;
+    line-height: 135%;
+    text-transform: capitalize;
+    &:hover {
+        background: $blue;
+        filter: brightness(1.2)
+    }
+    &.arrow {
+        position: relative;
+        padding: 15px 35px 15px 20px;
+        &:after {
+            content: "\e909";
+            font-family: $icomoon;
+            font-size: 16px;
+            position: absolute;
+            top: 0;
+            right: 0px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            width: 15px;
+            background: $dkblue;
+            padding: 0 5px;
+        }
+    }
+}
+
+p {
+    font-size:18px;
+    color: $blk;
+    line-height: 28px;
+    margin-bottom: 20px !important;
+}
+
+h1 {
+    font-family: $sans;
+    font-size: 42px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 115%;
+    color: $white;
+    margin-bottom: 20px !important;
+    @include respond(phone) {
+        font-size: 32px;
+    }
+}
+
+h2 {
+    font-family: $sans;
+    font-size: 38px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 115%;
+    color: $blk;
+    margin-bottom: 20px !important;
+    @include respond(phone) {
+        font-size: 28px;
+    }
+}
+
+h3 {
+    font-family: $sans;
+    font-size: 28px;
+    font-weight: $bold;
+    line-height: 115%;
+    color: $blk;
+    margin-bottom: 20px !important;
+    @include respond(phone) {
+        font-size: 24px;
+    }
+}
+
+h4 {
+    font-size: 26px;
+    font-family: $sans;
+    font-weight: $bold;
+    line-height: 115%;
+    color: $blk;
+    margin-bottom: 20px !important;
+    @include respond(phone) {
+        font-size: 22px;
+    }
+}
+
+h5 {
+    font-size: 24px;
+    font-weight: $bold;
+    line-height: 115%;
+    color: $blk;
+    margin-bottom: 20px !important;
+    @include respond(phone) {
+        font-size: 20px;
+    }
+}
+.faux-title {
+    text-transform: uppercase;
+    line-height: 110%;
+    letter-spacing: -1px;
+    padding: 0px;
+    margin-bottom: 35px;
+    font-size: 44px;
+    color: $blk;
+    font-weight: $bold;
+    span {
+        color: $blue;
+    }
+    @include respond(phone) {
+        font-size: 34px;
+    }
+}
+
+.dk-blue-text {
+    color: $dkblue;
+}
+
+.large-text {
+    font-size: 30px;
+    line-height: 135%;
+    font-weight: $bold;
+    color: $darkerblue;
+    margin-bottom: 60px !important;
+    font-family: $sans !important;
+    @include respond(phone) {
+        font-size: 22px;
+        margin-bottom: 30px !important;
+    }
+}

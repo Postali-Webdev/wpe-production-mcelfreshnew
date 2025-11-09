@@ -1,0 +1,202 @@
+/**
+ * Footer Styles
+ *
+ * @package Postali Child
+ * @author Postali LLC
+**/
+
+#pre-footer {
+    h4 {
+        text-align: center;
+        padding: 60px 0;
+        @include respond(tab-port) {
+            padding: 60px 0 30px 0;
+        }
+    }
+    .gform_fields {
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: "left-top right-item" "left-middle right-item" "left-bottom right-item";
+        align-items: flex-start;
+        @include respond(tab-port) {
+            display: flex;
+            flex-direction: column;
+            .gform_fields, .gfield {
+                width: 100%;
+            }
+        }
+    }
+
+    #field_1_1 {
+        grid-area: left-top;
+    }
+    #field_1_2 {
+        grid-area: left-middle;
+    }
+    #field_1_3 {
+        grid-area: left-bottom;
+    }
+    #field_1_4 {
+        grid-area: right-item;
+    }   
+    textarea {
+        height: 100% !important;
+        text-transform: uppercase;
+    }
+    input[type="submit"] {
+        width: fit-content;
+        padding: 15px 30px !important;
+        cursor: pointer;
+        transition: trans;
+        &:hover {
+            background: $ltblue;
+        }
+    }
+}
+
+footer {
+    .background-wrapper {
+        position: relative;
+        padding: 60px 0;
+        .footer-background img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            background-repeat: no-repeat;
+            background-size: cover;
+            object-fit: cover;
+        }
+        .column-50 {
+            .inner-wrapper {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                flex-wrap: wrap;
+                gap: 30px;
+                margin-top: 30px;
+                p {
+                    color: $white;
+                    margin-bottom: 0 !important;
+                }
+                .address {
+                    max-width: 220px;
+
+                    @include respond(phone) {
+                        max-width: 100%;
+                    }
+                }
+                .social {
+                    display: flex;
+                    justify-content: flex-start;
+                    gap: 0px;
+                }
+            }
+            #menu-footer-menu {
+                list-style-type: none;
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                column-gap: 30px;
+                row-gap: 15px;
+                margin: 0 !important;
+                @include respond(tab-port) {
+                    margin-top: 60px !important;
+                }
+                li {
+                    border-bottom: solid 1px $white;
+                    padding: 5px 0;
+                    margin: 0 !important;
+                    position: relative;
+                    &:hover {
+                        a {
+                            color: $blue;
+                        }
+                    }
+                    a {
+                        color: $white;
+                        font-weight: $normal;
+                        font-size: 16px;
+                        padding-bottom: 5px;
+                        padding-right: 20px;
+                        text-decoration: none;
+                        display: block;
+                        width: 100%;
+                        &:before {
+                            content: "\e909";
+                            font-family: $icomoon;
+                            color: $white;
+                            position: absolute;
+                            right: 5px;
+                            top: 5px;
+                            width: 10px;
+                            height: 10px;
+                        }
+                    }
+                }
+                
+            }
+        }
+        .contact {
+            margin-top: 30px;
+            a {
+                color: $white;
+                text-decoration: underline;
+                display: block;
+                font-size: 23px;
+                font-weight: $bold;
+                padding-left: 35px;
+                word-wrap: break-word;
+                @include respond(phone) {
+                    font-size: 14px;
+                    padding-left: 28px;
+                }
+                position: relative;
+                &:before {
+                    font-family: $icomoon;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    font-size: 20px;   
+                    color: $blue;
+                    transition: $trans;
+                }
+                &:first-of-type {
+                    margin-bottom: 15px;
+                    &:before {
+                        content: "\e90b";
+                    }
+                }
+                &:last-of-type {
+                    &:before {
+                        content: "\e90e";
+                    }
+                }
+                &:hover {
+                    color: $blue;
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+    #copyright {
+        padding: 0;
+        background: $darkergrey;
+        margin: 0 ;
+        padding: 10px;
+        p, a {
+            font-size: 14px;
+            text-align: center;
+        }
+        p {
+            color: $white;
+            margin: 0 !important;
+        }
+        a {
+            color: $blue;
+            margin: 0 !important;
+        }
+    }
+}

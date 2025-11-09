@@ -1,0 +1,83 @@
+header {
+    position: fixed;
+    top:0;
+    width: 100%;
+    z-index: 50;
+    display:flex;
+    // height:115px;
+    height: auto;
+    flex-direction: column;
+    background: $white;
+    border-bottom: solid 1px $ltgrey;
+    .header-hat {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        width: 94%;
+        padding: 10px 0 0;
+        margin: 0 auto;
+        .translate-btns {
+            a {
+                font-size: 13px;
+                font-family: $sans;
+                color: $yellow;
+                text-transform: uppercase;
+                text-decoration: underline;
+                letter-spacing: .75px;
+                transition: $trans;
+                text-underline-offset: 8px;
+                padding-right: 47px;
+                @include respond(desktop) {
+                    padding-right: 14px;
+                }
+                @include respond(tab-land) {
+                    padding-right: 0;
+                }
+                &:hover {
+                    color: $white;
+                }
+            }
+        }
+    }
+    #header-top {
+        display: flex;
+        justify-content: space-between;
+        max-width: $desktop-lg;
+        margin: 0 auto;
+        width: 100%;
+        align-items: center;
+        padding: 20px 0 !important;
+        @include respond(desktop-lg) {
+            padding: 25px !important;
+        }
+        @include respond(desktop) {
+            max-width: 100%;
+        }
+        &_left {
+            display: flex;
+            width: 25%;
+            justify-content: flex-start;
+
+            .custom-logo-link {
+                width: 100%;
+                height: auto;
+                display:flex;
+
+                .custom-logo {
+                    max-height: 100%;
+                    max-width: 280px;
+                    @include respond(tab-land) {
+                        max-width: 250px;
+                    }
+                    @include respond(phone) {
+                        max-width: 200px;
+                    }
+                }
+            }
+            
+            @include respond(tab-land) {
+                width: 100%;
+            }
+        }
+    }
+}

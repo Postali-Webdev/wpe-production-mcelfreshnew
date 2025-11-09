@@ -1,0 +1,357 @@
+
+// keyframes for desktop sub-nav
+
+@keyframes fadein{
+    0% { opacity:0; top:85px; }
+    100% { opacity:1; top:95px; }
+}
+
+@-webkit-keyframes fadein{
+    0% { opacity:0; top:85px; }
+    100% { opacity:1; top:95px; }
+}
+
+
+header {    
+    .contact-banner {
+        background: $ltgrey;
+        padding: 5px 25px;
+        .wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            max-width: $desktop-lg;
+            margin: 0 auto;
+            padding: 3px 0;
+            .case-results {
+                min-width: 105px;
+            }
+            .case-results-slider {
+                max-width: 500px;
+                a {
+                    line-height: normal !important;
+                }
+            }
+            .left-col {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                gap: 20px;
+                @include respond(phone) {
+                    display: none;
+                }
+            }
+            .right-col {
+                min-width: fit-content;
+            }
+            p, a {
+                font-size: 16px;
+                margin-bottom: 0 !important;
+            }
+            .phone-number {
+                color: $blk;
+                text-decoration: none;
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+    #header-top {
+        &_right {
+            &_menu {
+                #menu-main-menu {
+                    list-style-type: none;
+                    display: flex;
+                    padding-bottom:0 !important;
+                    align-items: center;
+                    @include respond(desktop) {
+                        margin-left: 0 !important;
+                    }
+                    li {
+                        display: flex;
+                        margin-left:5px;
+                        position: relative;
+                        height: auto;
+                        &.no-link > a {
+                            @media screen and (min-width: 1025px) {
+                                pointer-events: none;
+                            }
+                        }
+                        &.menu-item-has-children {
+                            @media screen and (min-width: 1025px) {
+                                &:after {
+                                    content: "\e907";       
+                                    font-family: $icomoon;                         
+                                    position: absolute;
+                                    font-size: 9px;
+                                    margin-top: 4px;
+                                    right: 0px;
+                                    height: 30px;
+                                    z-index: 1;
+                                    color: $blk;
+                                    display: block;
+                                }
+                                .sub-menu {
+                                    &:before {
+                                        content: "";
+                                        width: 100%;
+                                        height: 30px;
+                                        top: -30px;
+                                        position: absolute;
+                                        left: 0;
+                                    }
+                                    .tertiary-close {
+                                        display: none !important;
+                                    }
+                                }
+                            }
+                            .sub-menu {
+                                padding: 0 !important;
+                                li {
+                                    padding: 0 10px !important;
+                                    &:hover {
+                                        background: $ltgrey !important;
+                                        a {
+                                            color: $blk !important;
+                                        }
+                                    }
+                                    a {
+                                        @media screen and (min-width: 1025px) {
+                                            color: $blk !important;
+                                            &:focus, &:focus-visible {
+                                                color: $blk !important;
+                                            }
+                                        }
+                                    }
+                                    .sub-menu {
+                                        border-top: 0 !important;
+                                        background: $ltgrey !important;
+                                        li {
+                                            &:hover {
+                                                background: $white !important;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        .accordion-toggle {
+                            display:none;
+                        }
+
+                        &:not(.menu-item-search) {
+                            &.disable {
+                                opacity: 0.5;
+                                pointer-events: none;
+                            }
+                        }
+
+                        // hover states to display sub-menu
+                        &:hover, 
+                        > a:focus ~, 
+                        > a:focus-visible ~ {
+                            a {
+                                color: $blk !important;
+                                &:before {
+                                    right: 20px;
+                                }
+                            }
+
+                            .sub-menu {
+                                display:block;
+                                z-index: 0;
+                                -webkit-animation: .3s ease 0s normal forwards 1 fadein;
+                                animation: .3s ease 0s normal forwards 1 fadein;
+
+                                li {
+                                    @media screen and (min-width: 1025px) {
+                                        a {
+                                            background:none;
+                                            color:$blk !important;
+                                            font-weight: $normal;
+                                            &:hover {
+                                                color:$blk !important;
+                                            }
+                                        }
+                                    }
+
+
+                                    // nested 3rd level flyout
+                                    .sub-menu {
+                                        display:none;
+                                        position: absolute;
+                                        top: 0 !important;
+                                        margin-left: calc(100% - 10px) !important;
+
+                                        &:before {
+                                            position: absolute;
+                                            left: -30px;
+                                            top: 0;
+                                            height: 100%;
+                                            width: 30px;
+                                        }
+
+                                        &:hover {
+                                            display:block;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        // active menu states for current page / current parent
+                        &.current-menu-parent,
+                        &.current-menu-item,
+                        &.current-page-ancestor {
+                            a {
+
+                                &:before {
+                                    right: 20px;
+                                    bottom: -6px;
+                                    display:block !important;
+                                }
+                            }
+
+                            &:hover {
+                                .sub-menu {
+                                    left:0;
+
+                                    .current_page_item {
+                                        a {
+                                            color:$blk !important;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        &.nav-contact {
+                            margin:0 12px 0 30px;
+                            a {
+                                padding: 12px 40px !important;
+                                transition: 0.2s linear;
+                                border-radius: 10px;
+                                @include respond(desktop-lg) {
+                                    padding: 12px 25px !important;
+                                } 
+                                &::before {
+                                    display:none !important;
+                                }
+                            }
+                        }
+
+                        a {
+                            padding:0px 15px;
+                            font-size: 15px;
+                            font-weight:400;
+                            display: flex;
+                            align-items: center;
+                            z-index: 1;
+                            font-weight: $normal;
+                            color:$blk;
+                            text-decoration: none;
+                            @include respond(desktop) {
+                                font-size: 13px;
+                                padding: 0px 14px;
+                            }
+                            &:before {
+                                content: "";
+                                position: absolute;
+                                z-index: -1;
+                                left: 20px;
+                                right: 100%;
+                                bottom: -6px;
+                                background: $blk;
+                                height: 1px;
+                                transition-property: right;
+                                transition-duration: 0.3s;
+                                transition-timing-function: ease-out;
+                            }
+                        }
+
+                        .sub-menu {
+                            width: auto;
+                            white-space: nowrap;
+                            transition: $trans;
+                            position: absolute;
+                            overflow: visible;
+                            background: $white;
+                            z-index: 500;
+                            margin: 0;
+                            padding: 0;
+                            display: none;
+                            width: auto;
+                            top: 40px !important;
+                            padding:10px;
+                            border-top: solid 3px $dkblue;
+                            box-shadow: 3px 4px 7px 1px $grey;
+                            .child-close {
+                                display:none;
+                            }
+
+                            li {
+                                margin-left: 0;
+                                
+                                &:hover {
+                                    background: $ltgrey;
+                                    transition: $trans;
+                                    
+                                    .sub-menu {
+                                        display:block;
+                                        margin-top: -10px;
+                                    }
+                                }
+
+                                a {
+                                    padding:10px 15px;
+
+                                    &::before {
+                                        display:none !important;
+                                    }
+                                }
+                                &.menu-item-has-children {
+                                    &:after {
+                                        color: $blk;
+                                        transform: rotate(-90deg);
+                                        @include respond(tab-port) {
+                                            transform: rotate(0deg);
+                                        }
+                                    }
+                                }
+                                &.current-menu-item {
+                                    a {
+                                        text-decoration: underline;
+                                    }
+                                }
+                            }
+                        }
+
+                        @include nav-search-desktop;
+                    }
+                }
+
+                #mobile-sub-close {
+                    display:none;
+                }
+
+                #header-top_mobile {
+                    display:none;
+                }
+                #menu-spanish-header-menu {
+                    li {
+                        a {
+                            font-size: 13px;
+                            @include respond(desktop) {
+                                font-size: 11px !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
