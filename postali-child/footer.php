@@ -40,7 +40,9 @@
                 </div>
             </div>
             <div class="column-50 block">
+                <nav role="navigation">
                 <?php wp_nav_menu( [ 'container' => false, 'theme_location' => 'footer-nav' ] ); ?>
+                </nav>
             </div>
         </div>
     </div>
